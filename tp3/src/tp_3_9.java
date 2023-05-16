@@ -1,0 +1,45 @@
+/*9_Escribir un programa que mientras el usuario ingrese un número
+entero entre 1 y 10, pida ingresar un carácter, y por cada carácter
+ingresado imprima:
+a. “letra minúscula” si el carácter es una letra del abecedario en
+minúscula;
+b. “letra mayúscula” si el carácter es una letra del abecedario
+en mayúscula;
+c. “dígito” si el caracter corresponde a un número;
+d. “otro” para los restantes casos de caracteres.
+1-Obtener numero entre 1 y 10 si es asi pedir un caracter sino error
+2-Por cada caracter "letra minuscula" si esta en minuscula "letra mayuscula"si esta en mayuscula
+3-"digito"si es un numero
+4-"otro"para los restantes
+while (num>=1, num<=10)si es correcto ingresa caracter.*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class tp_3_9 {
+    public static void main(String []args){
+        try {BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+            int numero=0;
+            char letra= ' ';
+            while(numero < 1 || numero > 10) {
+                System.out.println("Ingrese numero");
+                numero = Integer.valueOf(entrada.readLine());
+                System.out.println("Ingrese caracter");
+                letra = entrada.readLine().charAt(0);
+                LetraObtenida(letra);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error "+e);
+        }
+    }
+    public static void LetraObtenida(char letra){
+        for (letra >= 'a' && letra <= 'z'){
+            System.out.println("Es una letra minuscula");
+        }
+        for (letra >= 'A' && letra <= 'Z'){
+            System.out.println("Es una letra mayuscula");
+    }
+
+}
+}
