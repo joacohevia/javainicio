@@ -18,28 +18,44 @@ import java.io.InputStreamReader;
 
 public class tp_3_9 {
     public static void main(String []args){
-        try {BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
-            int numero=0;
-            char letra= ' ';
-            while(numero < 1 || numero > 10) {
-                System.out.println("Ingrese numero");
-                numero = Integer.valueOf(entrada.readLine());
-                System.out.println("Ingrese caracter");
-                letra = entrada.readLine().charAt(0);
-                LetraObtenida(letra);
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error "+e);
-        }
+        int numero=0;
+        char letra= ' ';
+        obtenerUsuario(numero,letra);
+        
     }
-    public static void LetraObtenida(char letra){
-        for (letra >= 'a' && letra <= 'z'){
+
+        public static void obtenerUsuario(int numero, char letra){
+            BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+            try {  
+              while(numero < 1 || numero > 10) {
+                    System.out.println("Ingrese numero");
+                    numero = Integer.valueOf(entrada.readLine());
+                    System.out.println("Ingrese caracter");
+                    letra = entrada.readLine().charAt(0);
+                    
+                }
+            } catch (Exception e) {
+                System.out.println("error"+ e);
+            } 
+            LetraObtenida(letra);
+        }
+    
+        public static void LetraObtenida(char letra){
+        if ((letra >='a') && (letra <='z')){
             System.out.println("Es una letra minuscula");
-        }
-        for (letra >= 'A' && letra <= 'Z'){
+            }
+        else if ((letra >= 'A') && (letra <= 'Z')){
             System.out.println("Es una letra mayuscula");
-    }
+            }
+        else if ((letra >= '0') && (letra <= '9')){
+                System.out.println("Es un digito");
+            }
+        else {
+            System.out.println("Es especial");
+        }    
+        
+       
+        }        
+}
 
-}
-}
+
